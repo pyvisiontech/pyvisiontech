@@ -88,6 +88,180 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
     width: 90% !important;
   }
 }
+
+/* Portfolio Section Transition Effects */
+/* Portfolio container - fade in animation */
+.elementor-element-9c9b504 {
+  opacity: 0;
+  animation: portfolioFadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes portfolioFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Portfolio heading animation */
+.elementor-element-44f8a9c {
+  opacity: 0;
+  animation: portfolioFadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+/* Portfolio description animation */
+.elementor-element-23fa18f {
+  opacity: 0;
+  animation: portfolioFadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+/* Portfolio projects container */
+.elementor-element-8f9047d {
+  opacity: 0;
+  animation: portfolioFadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+/* Portfolio project cards - staggered fade in */
+.elementor-element-8f9047d > div {
+  opacity: 0;
+  transform: translateY(25px) scale(0.95);
+  animation: portfolioCardFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.elementor-element-8f9047d > div:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.elementor-element-8f9047d > div:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.elementor-element-8f9047d > div:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+@keyframes portfolioCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Portfolio card hover effects */
+.elementor-element-8f9047d > div:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio image container transitions */
+.elementor-element-8f9047d .elementor-widget-container {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.elementor-element-8f9047d > div:hover .elementor-widget-container {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+}
+
+/* Portfolio image zoom effect on hover */
+.elementor-element-8f9047d .elementor-widget-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  filter: brightness(1);
+}
+
+.elementor-element-8f9047d > div:hover .elementor-widget-container img {
+  transform: scale(1.1);
+  filter: brightness(1.05);
+}
+
+/* Portfolio text content transitions */
+.elementor-element-8f9047d > div > div[style*="margin-top: 20px"] {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.elementor-element-8f9047d > div:hover > div[style*="margin-top: 20px"] {
+  transform: translateY(-5px);
+}
+
+/* Portfolio title link transitions */
+.elementor-element-8f9047d h6 a {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.elementor-element-8f9047d > div:hover h6 a {
+  color: var(--ast-global-color-0, #6878d6);
+  transform: scale(1.05);
+}
+
+/* Portfolio description text transition */
+.elementor-element-8f9047d > div:hover p {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Responsive adjustments for portfolio animations */
+@media (max-width: 1024px) {
+  .elementor-element-8f9047d > div {
+    animation-delay: 0.2s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(1) {
+    animation-delay: 0.2s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(2) {
+    animation-delay: 0.3s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(3) {
+    animation-delay: 0.4s !important;
+  }
+  
+  /* Reduced hover effect on tablet */
+  .elementor-element-8f9047d > div:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Further reduced animation delays on mobile */
+  .elementor-element-8f9047d > div {
+    animation-delay: 0.1s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(1) {
+    animation-delay: 0.1s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(2) {
+    animation-delay: 0.15s !important;
+  }
+  
+  .elementor-element-8f9047d > div:nth-child(3) {
+    animation-delay: 0.2s !important;
+  }
+  
+  /* Minimal hover effect on mobile */
+  .elementor-element-8f9047d > div:hover {
+    transform: translateY(-5px);
+  }
+  
+  .elementor-element-8f9047d > div:hover .elementor-widget-container img {
+    transform: scale(1.05);
+  }
+}
 </style>
 
 <style>
@@ -1392,6 +1566,9 @@ Click the help icon above to learn more.
   display: flex;
   justify-content: center;
   width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .elementor-element-78bb3f8 .elementor-image-box-img img {
@@ -1400,6 +1577,235 @@ Click the help icon above to learn more.
   object-fit: cover;
   border-radius: 12px;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  filter: brightness(1);
+}
+
+/* Leadership section container - fade in animation with background effects */
+.elementor-element-fb80bbd {
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #f5f7fa 100%);
+  background-size: 200% 200%;
+  animation: fadeInUp 0.8s ease-out forwards, gradientShift 8s ease infinite;
+  transition: background-position 0.5s ease;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Subtle overlay pattern effect */
+.elementor-element-fb80bbd::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(104, 120, 214, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(36, 42, 86, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(104, 120, 214, 0.08) 0%, transparent 50%);
+  opacity: 0;
+  animation: overlayFadeIn 1s ease-out 0.5s forwards, overlayPulse 6s ease-in-out infinite 1.5s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Shimmer effect */
+.elementor-element-fb80bbd::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Ensure content is above background effects */
+.elementor-element-fb80bbd > .e-con-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced background on hover */
+.elementor-element-fb80bbd:hover {
+  background: linear-gradient(135deg, #e8ecf1 0%, #b8c5d8 50%, #e8ecf1 100%);
+  transition: background 0.6s ease;
+}
+
+.elementor-element-fb80bbd:hover::before {
+  animation: overlayFadeIn 1s ease-out forwards, overlayPulse 4s ease-in-out infinite;
+  opacity: 1.2;
+}
+
+.elementor-element-fb80bbd:hover::after {
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Smooth background transition when section comes into view */
+@media (prefers-reduced-motion: no-preference) {
+  .elementor-element-fb80bbd {
+    will-change: background-position, opacity;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Leadership heading animation */
+.elementor-element-289df98 {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+/* Leadership cards - staggered fade in */
+.elementor-element-78bb3f8 > div {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpCard 0.6s ease-out forwards;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.elementor-element-78bb3f8 > div:nth-child(6) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Leadership card hover effects */
+.elementor-element-78bb3f8 .elementor-image-box-wrapper {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-wrapper:hover .elementor-image-box-img img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-wrapper:hover .elementor-image-box-content {
+  transform: translateY(-5px);
+}
+
+/* Leadership content transitions */
+.elementor-element-78bb3f8 .elementor-image-box-content {
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-title {
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-wrapper:hover .elementor-image-box-title {
+  color: var(--ast-global-color-0, #6878d6);
+  transform: scale(1.05);
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-description {
+  transition: color 0.3s ease;
+  font-size: 14px;
+  color: #666;
+}
+
+.elementor-element-78bb3f8 .elementor-image-box-wrapper:hover .elementor-image-box-description {
+  color: #333;
 }
 
 /* Responsive: 2 columns on tablet */
@@ -1437,6 +1843,42 @@ Click the help icon above to learn more.
   
   .elementor-element-advisors-heading h2 {
     font-size: 24px !important;
+  }
+  
+  /* Reduce animation delays on mobile for faster loading */
+  .elementor-element-78bb3f8 > div {
+    animation-delay: 0.1s !important;
+  }
+  
+  .elementor-element-78bb3f8 > div:nth-child(1) {
+    animation-delay: 0.1s !important;
+  }
+  
+  .elementor-element-78bb3f8 > div:nth-child(2) {
+    animation-delay: 0.15s !important;
+  }
+  
+  .elementor-element-78bb3f8 > div:nth-child(3) {
+    animation-delay: 0.2s !important;
+  }
+  
+  /* Slightly reduced hover effect on mobile */
+  .elementor-element-78bb3f8 .elementor-image-box-wrapper:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Optimize background effects on mobile */
+  .elementor-element-fb80bbd {
+    animation: fadeInUp 0.8s ease-out forwards;
+    background-size: 150% 150%;
+  }
+  
+  .elementor-element-fb80bbd::after {
+    animation: shimmer 4s ease-in-out infinite;
+  }
+  
+  .elementor-element-fb80bbd::before {
+    animation: overlayFadeIn 1s ease-out 0.5s forwards, overlayPulse 8s ease-in-out infinite 1.5s;
   }
 }
 </style>
