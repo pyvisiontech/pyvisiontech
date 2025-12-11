@@ -91,6 +91,259 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 </style>
 
 <style>
+	/* Pyvision Logo Styling - Icon in rounded square + text */
+	.pyvision-logo {
+		display: flex !important;
+		align-items: center !important;
+		gap: 12px !important;
+		text-decoration: none !important;
+	}
+	
+	.pyvision-logo .logo-icon {
+		width: 40px !important;
+		height: 40px !important;
+		background-color: #ffffff !important;
+		border-radius: 8px !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		flex-shrink: 0 !important;
+		padding: 2px !important;
+		box-sizing: border-box !important;
+		overflow: hidden !important;
+		position: relative !important;
+	}
+	
+	.pyvision-logo .logo-icon img {
+		width: 120% !important;
+		height: 120% !important;
+		object-fit: contain !important;
+		display: block !important;
+		transform: scale(1.2) !important;
+	}
+	
+	.pyvision-logo .logo-text {
+		font-family: 'Poppins', sans-serif !important;
+		font-weight: 700 !important;
+		font-size: 24px !important;
+		color: #ffffff !important;
+		line-height: 1 !important;
+		white-space: nowrap !important;
+	}
+	
+	/* Ensure logo displays properly in header */
+	.ast-theme-transparent-header .pyvision-logo .logo-text {
+		color: #ffffff !important;
+	}
+	
+	.ast-theme-transparent-header .pyvision-logo .logo-icon {
+		background-color: #ffffff !important;
+	}
+	
+	/* Header logo adjustments */
+	.site-logo-img .pyvision-logo {
+		height: auto !important;
+		margin-left: 0 !important;
+	}
+	
+	/* Move site branding/logo container - align with content below */
+	.site-branding,
+	.site-logo-img {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
+	
+	.site-header-primary-section-left {
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+	}
+	
+	/* Desktop: Shift logo left to align with content */
+	@media (min-width: 769px) {
+		.site-primary-header-wrap .ast-container {
+			padding-left: 20px !important;
+		}
+	}
+	
+	/* Mobile header logo adjustments - will be overridden by media queries */
+	#ast-mobile-header .site-logo-img .pyvision-logo,
+	#ast-mobile-header .site-branding,
+	#ast-mobile-header .site-logo-img {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
+	
+	#ast-mobile-header .site-header-primary-section-left {
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+	}
+	
+	.site-logo-img .pyvision-logo .logo-icon {
+		width: 40px !important;
+		height: 40px !important;
+		background-color: #ffffff !important;
+		border-radius: 8px !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		flex-shrink: 0 !important;
+		padding: 2px !important;
+		box-sizing: border-box !important;
+		overflow: hidden !important;
+		position: relative !important;
+	}
+	
+	.site-logo-img .pyvision-logo .logo-icon img {
+		width: 120% !important;
+		height: 120% !important;
+		object-fit: contain !important;
+		display: block !important;
+		max-width: none !important;
+		max-height: none !important;
+		filter: none !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		transform: scale(1.2) !important;
+	}
+	
+	/* Override any theme filters on header logo */
+	.site-logo-img img,
+	.custom-logo-link img,
+	.transparent-custom-logo img {
+		filter: none !important;
+	}
+	
+	/* Ensure pyvision logo images are visible */
+	.site-logo-img .pyvision-logo .logo-icon img,
+	.custom-logo-link .pyvision-logo .logo-icon img,
+	.transparent-custom-logo .pyvision-logo .logo-icon img {
+		filter: none !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+		display: block !important;
+	}
+	
+	/* Footer logo adjustments */
+	.footer-brand .footer-logo .pyvision-logo {
+		max-width: 190px !important;
+		margin-left: 0 !important;
+	}
+	
+	.footer-brand .footer-logo {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
+	
+	.footer-brand {
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+	}
+	
+	.footer-brand .footer-logo .pyvision-logo .logo-icon {
+		width: 36px !important;
+		height: 36px !important;
+		padding: 2px !important;
+		overflow: hidden !important;
+	}
+	
+	.footer-brand .footer-logo .pyvision-logo .logo-icon img {
+		width: 120% !important;
+		height: 120% !important;
+		object-fit: contain !important;
+		transform: scale(1.2) !important;
+	}
+	
+	.footer-brand .footer-logo .pyvision-logo .logo-text {
+		font-size: 20px !important;
+	}
+	
+	/* Mobile responsive */
+	@media (max-width: 768px) {
+		.pyvision-logo .logo-icon {
+			width: 36px !important;
+			height: 36px !important;
+			padding: 2px !important;
+			overflow: hidden !important;
+		}
+		
+		.pyvision-logo .logo-icon img {
+			width: 120% !important;
+			height: 120% !important;
+			object-fit: contain !important;
+			transform: scale(1.2) !important;
+		}
+		
+		.pyvision-logo .logo-text {
+			font-size: 20px !important;
+		}
+		
+		/* Move logo to left edge on mobile */
+		.site-branding,
+		.site-logo-img,
+		.site-header-primary-section-left {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		
+		#ast-mobile-header .site-logo-img .pyvision-logo,
+		#ast-mobile-header .site-branding,
+		#ast-mobile-header .site-logo-img,
+		#ast-mobile-header .site-header-primary-section-left {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		
+		/* Footer logo to left edge on mobile */
+		.footer-brand,
+		.footer-brand .footer-logo {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+	}
+	
+	@media (max-width: 544px) {
+		.pyvision-logo .logo-icon {
+			width: 32px !important;
+			height: 32px !important;
+			padding: 2px !important;
+			overflow: hidden !important;
+		}
+		
+		.pyvision-logo .logo-icon img {
+			width: 120% !important;
+			height: 120% !important;
+			object-fit: contain !important;
+			transform: scale(1.2) !important;
+		}
+		
+		.pyvision-logo .logo-text {
+			font-size: 18px !important;
+		}
+		
+		/* Move logo to left edge on small mobile */
+		.site-branding,
+		.site-logo-img,
+		.site-header-primary-section-left {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		
+		#ast-mobile-header .site-logo-img .pyvision-logo,
+		#ast-mobile-header .site-branding,
+		#ast-mobile-header .site-logo-img,
+		#ast-mobile-header .site-header-primary-section-left {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+		
+		/* Footer logo to left edge on small mobile */
+		.footer-brand,
+		.footer-brand .footer-logo {
+			padding-left: 0 !important;
+			margin-left: 0 !important;
+		}
+	}
+
 	/* Footer layout fix */
 .site-primary-footer-inner-wrap {
   display: flex !important;
@@ -258,7 +511,7 @@ Click the help icon above to learn more.
 											<div class="site-header-primary-section-left site-header-section ast-flex site-header-section-left">
 									<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
 							<div class="site-branding ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
-					<span class="site-logo-img"><a href="./index.html" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url" aria-label="Digital Agency"><img fetchpriority="high" width="842" height="223" src="./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png" class="custom-logo" alt="chatgpt image nov 6, 2025, 06 02 39 pm" decoding="async" srcset="./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png 1x, ./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png 2x" sizes="(max-width: 842px) 100vw, 842px"></a></span>				</div>
+					<span class="site-logo-img"><a href="./index.html" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url" aria-label="Digital Agency"><div class="pyvision-logo"><div class="logo-icon"><img src="./wp-content/uploads/2025/11/icons.png" alt="PyvisionTech Logo" /></div><span class="logo-text">PYVISIONTECH</span></div></a></span>				</div>
 			<!-- .site-branding -->
 					</div>
 								</div>
@@ -328,7 +581,7 @@ Click the help icon above to learn more.
 													<div class="site-header-primary-section-left site-header-section ast-flex site-header-section-left">
 										<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
 							<div class="site-branding ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
-					<span class="site-logo-img"><a href="./index.html" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url" aria-label="Digital Agency"><img fetchpriority="high" width="842" height="223" src="./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png" class="custom-logo" alt="chatgpt image nov 6, 2025, 06 02 39 pm" decoding="async" srcset="./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png 1x, ./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png 2x" sizes="(max-width: 842px) 100vw, 842px"></a></span>				</div>
+					<span class="site-logo-img"><a href="./index.html" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url" aria-label="Digital Agency"><div class="pyvision-logo"><div class="logo-icon"><img src="./wp-content/uploads/2025/11/icons.png" alt="PyvisionTech Logo" /></div><span class="logo-text">PYVISIONTECH</span></div></a></span>				</div>
 			<!-- .site-branding -->
 					</div>
 									</div>
@@ -1049,7 +1302,8 @@ Click the help icon above to learn more.
 				<div class="footer-top">
 					<div class="footer-column footer-brand">
 						<a href="./index.html" class="footer-logo">
-							<img loading="lazy" decoding="async" src="./wp-content/uploads/2025/11/cropped-cropped-cropped-ChatGPT-Image-Nov-6-2025-06_02_39-PM.png" alt="PyvisionTech Logo" width="190" height="auto" style="filter: brightness(0) invert(1);">
+              
+							<div class="pyvision-logo"><div class="logo-icon"><img src="./wp-content/uploads/2025/11/icons.png" alt="PyvisionTech Logo" /></div><span class="logo-text">PYVISIONTECH</span></div>
 						</a>
 						<p>Empowering innovation through intelligent technology - at PyvisionTech, we combine creativity and code to build smarter digital solutions for modern problems.</p>
 						<ul class="footer-social">
