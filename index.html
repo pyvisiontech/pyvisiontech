@@ -795,10 +795,14 @@ Click the help icon above to learn more.
     </div>
   </div>
 
-  <!-- Book a Meeting Button -->
+  <!-- Book a Meeting Section -->
   <div class="elementor-element elementor-element-d5d41c7 elementor-align-center elementor-widget elementor-widget-button" 
        data-id="d5d41c7" data-element_type="widget" data-widget_type="button.default">
     <div class="elementor-widget-container">
+      <!-- Consultation Text -->
+      <p style="font-size: 18px; color: #393a56; margin-bottom: 24px; font-weight: 400; line-height: 1.6; text-align: center;">
+        Request a <strong style="color: #4d61d6; font-weight: 600;">30 min consultation</strong> with us <strong style="color: #4d61d6; font-weight: 600;">for free</strong>
+      </p>
       <div class="elementor-button-wrapper">
         <a id="book-meeting-btn"
            class="elementor-button elementor-button-link elementor-size-sm"
@@ -2186,17 +2190,105 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
   });
 </script>
 <script>
-  document.getElementById("book-meeting-btn").addEventListener("click", function (e) {
-    e.preventDefault();
-    // Detect mobile device
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-      // Mobile → open email app compose view
-      window.location.href = "mailto:pyvisiontech@gmail.com?subject=Meeting%20Request%20from%20Website&body=Hello%20PyvisionTech,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20meeting%20with%20your%20team.";
-    } else {
-      // Desktop → open Gmail compose directly
-      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=pyvisiontech@gmail.com&su=Meeting%20Request%20from%20Website&body=Hello%20PyvisionTech,%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20meeting%20with%20your%20team.", "_blank");
-    }
-  });
+  const bookMeetingBtn = document.getElementById("book-meeting-btn");
+  if (bookMeetingBtn) {
+    bookMeetingBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      
+    
+      // GOOGLE CALENDAR APPOINTMENT SCHEDULING
+     // TODO: Replace this with your actual Google Calendar Appointment Schedule ID
+      const APPOINTMENT_SCHEDULE_ID = "YOUR_SCHEDULE_ID";
+      
+      // Check if schedule ID is configured
+      if (APPOINTMENT_SCHEDULE_ID === "YOUR_SCHEDULE_ID" || !APPOINTMENT_SCHEDULE_ID) {
+        // Fallback: Use basic calendar event creation if schedule not set up yet
+        const meetingTitle = encodeURIComponent("Meeting with PyvisionTech");
+        const meetingDescription = encodeURIComponent("Meeting request from PyvisionTech website");
+        const meetingLocation = encodeURIComponent("Delhi, India");
+        const meetingEmail = "pyvisiontech@gmail.com";
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${meetingTitle}&details=${meetingDescription}&location=${meetingLocation}&add=${meetingEmail}`;
+        window.open(calendarUrl, "_blank");
+        alert("Please configure your Google Calendar Appointment Schedule ID in the code. For now, opening basic calendar.");
+        return;
+      }
+      
+      // Google Calendar Appointment Scheduling URL
+      const appointmentUrl = `https://calendar.google.com/calendar/appointments/schedules/${APPOINTMENT_SCHEDULE_ID}`;
+      
+      // Open in new tab/window
+      const calendarWindow = window.open(appointmentUrl, "_blank");
+      
+      // Show helpful message to user
+      if (calendarWindow) {
+        // Show a brief notification
+        const notification = document.createElement("div");
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #4d61d6;
+          color: white;
+          padding: 15px 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          z-index: 10000;
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          max-width: 350px;
+          animation: slideIn 0.3s ease-out;
+        `;
+        notification.innerHTML = `
+          <strong>📅 Booking Calendar Opened!</strong><br>
+          Please select your preferred date and available time slot. 
+          You'll receive a confirmation email after booking.
+        `;
+        document.body.appendChild(notification);
+        
+        // Remove notification after 5 seconds
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.3s ease-out";
+          setTimeout(() => {
+            if (document.body.contains(notification)) {
+              document.body.removeChild(notification);
+            }
+          }, 300);
+        }, 5000);
+      } else {
+       
+        alert("Please allow popups for this site to open the booking calendar. Alternatively, you can contact us at pyvisiontech@gmail.com");
+      }
+    });
+  }
+  
+  // Add CSS animations for notification
+  if (!document.getElementById("booking-notification-styles")) {
+    const style = document.createElement("style");
+    style.id = "booking-notification-styles";
+    style.textContent = `
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
 </script>
 <script>
   document.getElementById("get-in-touch-btn").addEventListener("click", function (e) {
