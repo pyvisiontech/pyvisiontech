@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/projects/aistockagent(.*)",
-      "destination": "http://161.118.183.110:5000$1"
+      "source": "/projects/aistockagent",
+      "destination": "http://161.118.183.110:5000/"
+    },
+    {
+      "source": "/projects/aistockagent/:path*",
+      "destination": "http://161.118.183.110:5000/:path*"
     }
   ]
 }
