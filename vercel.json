@@ -1,11 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/projects/aistockagent",
-      "destination": "http://161.118.183.110:5000/"
-    },
-    {
-      "source": "/projects/aistockagent/:path*",
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "aistockagent.pyvisiontech.com" }],
       "destination": "http://161.118.183.110:5000/:path*"
     }
   ]
